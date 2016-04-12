@@ -110,4 +110,13 @@ Don't start on these until you're done
     source
     code](https://github.com/sinatra/sinatra/blob/master/lib/sinatra/base.rb)
     (it's not too bad). See what you learn there.
+14. **Advanced**: You may recall running `bin/setup` during the prep work. Go
+    back to the prep work repositories and examine `bin/setup` -- can you do the
+    same for this project? Typing `bin/setup` should:
+    1. Run `bundle install`
+    2. Run `rake db:create`
+    3. Run `rake db:migrate`
+    4. Run `rake db:seed`
+
+    You'll have to do some work to get it to work with the database.
 14. Whatever your heart desires. Come check in with me first.
