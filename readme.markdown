@@ -119,4 +119,8 @@ Don't start on these until you're done
     4. Run `rake db:seed`
 
     You'll have to do some work to get it to work with the database.
+14. Learn how to submit information using checkboxes. Can you submit information
+    about a HABTM relationship using checkboxes? (as a hint, do this at object
+    creation, rather than after a record already exists. But you can also, with
+    some work, do this after the record already exists).
 14. Whatever your heart desires. Come check in with me first.
