@@ -1,0 +1,12 @@
+development: 
+  host: 'localhost'
+  adapter: 'postgresql'
+  database: 'week-five-project'
+  encoding: 'utf8'
+  pool: 5
+test: 
+  host: 'localhost'
+  adapter: 'postgresql'
+  database: 'week-five-project-test'
+  encoding: 'utf8'
+  pool: 5
