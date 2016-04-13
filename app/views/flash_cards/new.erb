@@ -12,16 +12,16 @@
 <% end %>
 
 <form action="/flash-cards" method="post">
-  <div>
+  <div class="form-group">
     Question:
-    <input type="textarea" name="question" value="<%= @flash_card.question %>">
+    <input type="text" class="form-control" name="question" value="<%= @flash_card.question %>">
   </div>
-  <div>
+  <div class="form-group">
     Answer:
-    <input type="textarea" name="answer" value="<%= @flash_card.answer %>">
+    <input type="text" class="form-control" name="answer" value="<%= @flash_card.answer %>">
   </div>
-  <div>
-    <input type="submit" value="Make a new Flash Card">
+  <div class="form-group">
+    <input type="submit" value="Make a new Flash Card" class="btn btn-default">
   </div>
 
 </form>
