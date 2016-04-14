@@ -46,7 +46,8 @@ patch "/flash-cards/:id/?" do
   @flash_card = FlashCard.find_by_id(params['id'])
   
   if @flash_card.update_attributes(question: params['question'],
-                                   answer: params['answer'])
+                                   answer: params['answer'],
+                                   point_value: params['point_value'])
     redirect to("/flash-cards/#{@flash_card.id}")
   else
     erb :"flash_cards/edit"

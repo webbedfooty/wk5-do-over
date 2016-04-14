@@ -11,14 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 1) do
+ActiveRecord::Schema.define(version: 4) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "flash_cards", force: :cascade do |t|
-    t.text "question"
-    t.text "answer"
+    t.text    "question",                null: false
+    t.text    "answer",                  null: false
+    t.integer "point_value", default: 5, null: false
   end
 
 end
