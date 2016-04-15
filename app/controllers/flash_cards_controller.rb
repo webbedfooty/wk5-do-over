@@ -43,24 +43,15 @@ get "/flash-cards/:id/categories/?" do
   erb :"flash_cards/categories"
 end
 
-patch "/flash-cards/:flash_card_id/remove-category" do
+patch "/flash-cards/:flash_card_id/categories" do
+  
   @flash_card = FlashCard.find_by_id(params['flash_card_id'])
-  @category = Category.find_by_id(params['category_id'])
+  @categories = Category.where(id: params['category_id'])
 
-  @flash_card.categories.delete(@category)
+  @flash_card.categories = @categories
   
   redirect to("/flash-cards/#{ @flash_card.id }/categories")
 end
-
-patch "/flash-cards/:flash_card_id/add-category" do
-  @flash_card = FlashCard.find_by_id(params['flash_card_id'])
-  @category = Category.find_by_id(params['category_id'])
-
-  @flash_card.categories << @category
-  
-  redirect to("/flash-cards/#{ @flash_card.id }/categories")
-end
-
 
 # edit
 get "/flash-cards/:id/edit/?" do

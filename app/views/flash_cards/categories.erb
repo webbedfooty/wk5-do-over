@@ -4,23 +4,15 @@
 
 <h3>Categories</h3>
 <ul>
+  <form action="/flash-cards/<%= @flash_card.id %>/categories" method="post">
+    <input type="hidden" name="_method" value="patch">
   <% @categories.each do |c| %>
-    <li><%= c.name %>:
-      <div>
-        <% if @flash_card.categories.include?(c) %>
-          <form action="/flash-cards/<%= @flash_card.id %>/remove-category" method="post">
-            <input type="hidden" name="_method" value="patch">
-            <input type="hidden" name="category_id" value="<%= c.id %>">
-            <input type="submit" value="Remove This Category">
-          </form>
-        <% else %>
-          <form action="/flash-cards/<%= @flash_card.id %>/add-category" method="post">
-            <input type="hidden" name="_method" value="patch">
-            <input type="hidden" name="category_id" value="<%= c.id %>">
-            <input type="submit" value="Add This Category">
-          </form>
-        <% end %>
-      </div>    
+    <li>
+      <%= c.name %>:
+      <input type="checkbox" name="category_id[]" value="<%= c.id %>"
+        <%= @flash_card.categories.include?(c) ? "checked" : ""%> >  
     </li>
   <% end %>
+    <input type="submit" value="Update Categories">
+  </form>
 </ul>
