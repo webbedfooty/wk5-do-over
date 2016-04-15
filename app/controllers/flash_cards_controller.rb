@@ -8,6 +8,7 @@ end
 
 # create
 post "/flash-cards/?" do
+  binding.pry
   @flash_card = FlashCard.new(params)
 
   if @flash_card.save

@@ -1,6 +1,13 @@
 <h1>Show Page</h1>
 
 <p><%= @flash_card.question %></p>
+
+<% if @flash_card.due_date? %>
+  <p>Due on: <%= @flash_card.due_date %></p>
+<% else %>
+  <p>No due date</p>
+<% end %>
+
 <h2>Categories</h2>
 <ul>
   <% @categories.each do |c| %>
