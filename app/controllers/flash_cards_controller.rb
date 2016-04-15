@@ -26,6 +26,7 @@ end
 # show (shows question)
 get "/flash-cards/:id/?" do
   @flash_card = FlashCard.find_by_id(params['id'])
+  @categories = @flash_card.categories
   erb :"flash_cards/show"
 end
 
@@ -34,6 +35,32 @@ get "/flash-cards/:id/answer/?" do
   @flash_card = FlashCard.find_by_id(params['id'])
   erb :"flash_cards/answer"
 end
+
+# categories
+get "/flash-cards/:id/categories/?" do
+  @flash_card = FlashCard.find_by_id(params['id'])
+  @categories = Category.all
+  erb :"flash_cards/categories"
+end
+
+patch "/flash-cards/:flash_card_id/remove-category" do
+  @flash_card = FlashCard.find_by_id(params['flash_card_id'])
+  @category = Category.find_by_id(params['category_id'])
+
+  @flash_card.categories.delete(@category)
+  
+  redirect to("/flash-cards/#{ @flash_card.id }/categories")
+end
+
+patch "/flash-cards/:flash_card_id/add-category" do
+  @flash_card = FlashCard.find_by_id(params['flash_card_id'])
+  @category = Category.find_by_id(params['category_id'])
+
+  @flash_card.categories << @category
+  
+  redirect to("/flash-cards/#{ @flash_card.id }/categories")
+end
+
 
 # edit
 get "/flash-cards/:id/edit/?" do

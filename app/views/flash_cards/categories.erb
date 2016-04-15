@@ -1,0 +1,26 @@
+<h1>Categories for Question #<%= @flash_card.id %></h1>
+<h2>Question: <%= @flash_card.question %></h2>
+<h2>Answer: <%= @flash_card.answer %></h2>
+
+<h3>Categories</h3>
+<ul>
+  <% @categories.each do |c| %>
+    <li><%= c.name %>:
+      <div>
+        <% if @flash_card.categories.include?(c) %>
+          <form action="/flash-cards/<%= @flash_card.id %>/remove-category" method="post">
+            <input type="hidden" name="_method" value="patch">
+            <input type="hidden" name="category_id" value="<%= c.id %>">
+            <input type="submit" value="Remove This Category">
+          </form>
+        <% else %>
+          <form action="/flash-cards/<%= @flash_card.id %>/add-category" method="post">
+            <input type="hidden" name="_method" value="patch">
+            <input type="hidden" name="category_id" value="<%= c.id %>">
+            <input type="submit" value="Add This Category">
+          </form>
+        <% end %>
+      </div>    
+    </li>
+  <% end %>
+</ul>

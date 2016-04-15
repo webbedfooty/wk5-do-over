@@ -1,6 +1,14 @@
 <h1>Show Page</h1>
 
 <p><%= @flash_card.question %></p>
+<h2>Categories</h2>
+<ul>
+  <% @categories.each do |c| %>
+    <li><%= c.name %></li>
+  <% end %>
+</ul>
+<p><a href="/flash-cards/<%= @flash_card.id %>/categories">Edit Categories</a></p>
+
 <p><%= @flash_card.point_value %> points</p>
 <p><a href="/flash-cards/<%= @flash_card.id %>/answer">See the Answer</a></p>
 <p><a href="/flash-cards/<%= @flash_card.id %>/edit">Edit</a></p>
