@@ -1,12 +1,5 @@
 ### PLAYERS ###
 
-# INDEX
-get "/players" do
-  @players = Player.all
-  erb :"players/index"
-end
-
-
 # NEW
 get "/players/new" do
   @player = Player.new
@@ -25,7 +18,14 @@ post "/players" do
 end
 
 
-# SHOW
+# INDEX
+get "/players" do
+  @players = Player.all
+  erb :"players/index"
+end
+
+
+# SHOW - add club here
 get "/players/:id" do
   @player = Player.find_by_id(params['id'])
 erb :"players/show"

@@ -1,0 +1,30 @@
+<title> Clubs </title>
+
+<% if @club.errors.any? %>
+  <div>
+    <h2>Errors:</h2>
+    <ul>
+      <% @club.errors.full_messages.each do |c| %>
+        <li><%= c %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h1>Edit <%= @club.name %></h1>
+
+<form action="/clubs/<%= @club.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div>
+    Name:
+    <input type="text" name="name" value="<%= @club.name %>">
+  </div>
+  <div>
+    City:
+    <input type="text" name="city" value="<%= @club.city %>">
+  </div>
+
+  <div>
+    <input type="submit" value="Update Club">
+  </div>
+</form>

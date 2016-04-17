@@ -1,0 +1,27 @@
+<title> Clubs </title>
+<h1><%= @club.name %></h1>
+
+<p><em>Name:</em> <%= @club.name %></p>
+<p><em>City:</em> <%= @club.city %></p>
+<ul>
+  <% @sponsors.each do |s| %>
+  <li><%= s.name %></li>
+  <% end %>
+</ul>
+
+<div>
+  Sponsors:
+    <% @club.sponsors.each do |s| %>
+  <input type="text" name="sponsor" value="<%= s.name %>">
+  <li><%= s.name %></li>
+  <% end %>
+</div>
+<div>
+  Players:
+    <% @club.players.each do |p| %>
+  <input type="text" name="name" value="<%= @p.name %>">
+    <li><%= s.name %></li>
+</div>
+
+<p><a href="/clubs/<%= @club.id %>/edit">Edit <%= @club.name %></a></p>
+<p><a href="/clubs">Back to all Clubs</a></p>
