@@ -1,11 +1,11 @@
 <title> Players </title>
 
-<% if @club.errors.any? %>
+<% if @player.errors.any? %>
   <div>
     <h2>Errors:</h2>
     <ul>
-      <% @club.errors.full_messages.each do |c| %>
-        <li><%= c %></li>
+      <% @player.errors.full_messages.each do |p| %>
+        <li><%= p %></li>
       <% end %>
     </ul>
   </div>

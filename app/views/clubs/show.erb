@@ -1,14 +1,7 @@
 <title> Clubs </title>
 <h1><%= @club.name %></h1>
 
-<p><em>Name:</em> <%= @club.name %></p>
 <p><em>City:</em> <%= @club.city %></p>
-
-<ul>
-  <% @sponsors.each do |s| %>
-  <li><%= s.name %></li>
-  <% end %>
-</ul>
 
 <div>
   Sponsors:
