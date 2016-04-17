@@ -25,7 +25,7 @@ get "/sponsors" do
 end
 
 
-# SHOW
+# SHOW w Clubs
 get "/sponsors/:id" do
   @sponsor = Sponsor.find_by_id(params['id'])
   @clubs = @sponsor.clubs
@@ -33,10 +33,28 @@ erb :"sponsors/show"
 end
 
 
+#-------------------------------
+# CLUBS
+get "/sponsors/:id/clubs" do
+  @sponsor = Sponsor.find_by_id(params['id'])
+  @clubs = Club.all
+  erb :"sponsors/clubs"
+end
+
+
+patch "/sponsors/:id/clubs" do
+  @sponsor = Sponsor.find_by_id(params['id'])
+  @clubs = Club.where(id: params['club_id'])
+
+  @sponsor.clubs = @clubs
+
+  redirect to("/sponsors/#{ @sponsor.id }/clubs")
+end
+#-------------------------------
 # EDIT
 get "/sponsors/:id/edit" do
   @sponsor = Sponsor.find_by_id(params['id'])
-#  @sponsors = Sponsor.all
+  @sponsors = Sponsor.all
   erb :"sponsors/edit"
 end
 

@@ -1,0 +1,19 @@
+<title> Club Players </title>
+<h1><%= @club.name %></h1>
+<div></div>
+<h3>Current Players:</h3>
+<ul>
+  <form action="/clubs/<%= @club.id %>/players" method="post">
+    <input type="hidden" name="_method" value="patch">
+      <% @players.each do |p| %>
+        <li>
+          <%= p.name%>, <%=p.value %>:
+            <input type="checkbox" name="player_id[]" value="<%= p.id %>"
+            <%= @club.players.include?(p) ? "checked" : ""%> >
+        </li>
+      <% end %>
+    <input type="submit" value="Update Players">
+  </form>
+</ul>
+<p><a href="/clubs/<%= @club.id %>">Back to <%= @club.name %></a></p>
+<p><a href="/clubs">Back to all Clubs</a></p>

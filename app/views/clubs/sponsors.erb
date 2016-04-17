@@ -1,0 +1,19 @@
+<title> Club Sponsors </title>
+<h1><%= @club.name %></h1>
+<div></div>
+<h3>Current Sponsors:</h3>
+<ul>
+  <form action="/clubs/<%= @club.id %>/sponsors" method="post">
+    <input type="hidden" name="_method" value="patch">
+      <% @sponsors.each do |s| %>
+        <li>
+          <%= s.name%>, <%=s.value %>:
+            <input type="checkbox" name="sponsor_id[]" value="<%= s.id %>"
+            <%= @club.sponsors.include?(s) ? "checked" : ""%> >
+        </li>
+      <% end %>
+    <input type="submit" value="Update Sponsors">
+  </form>
+</ul>
+<p><a href="/clubs/<%= @club.id %>">Back to <%= @club.name %></a></p>
+<p><a href="/clubs">Back to all Clubs</a></p>

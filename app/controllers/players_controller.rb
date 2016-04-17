@@ -28,10 +28,28 @@ end
 # SHOW - add club here
 get "/players/:id" do
   @player = Player.find_by_id(params['id'])
+  @clubs = @player.clubs
 erb :"players/show"
 end
 
+#-------------------------------
+# CLUBS
+get "/players/:id/clubs" do
+  @player = Player.find_by_id(params['id'])
+  @clubs = Club.all
+  erb :"players/clubs"
+end
 
+
+patch "/players/:id/clubs" do
+  @player = Player.find_by_id(params['id'])
+  @clubs = Club.where(id: params['club_id'])
+
+  @player.clubs = @clubs
+
+  redirect to("/players/#{ @player.id }/clubs")
+end
+#-------------------------------
 # EDIT
 get "/players/:id/edit" do
   @player = Player.find_by_id(params['id'])
