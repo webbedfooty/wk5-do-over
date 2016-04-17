@@ -1,0 +1,9 @@
+<title> Sponsor </title>
+<h1><%= @sponsor.name %></h1>
+
+<p><em>Name:</em> <%= @sponsor.name %></p>
+<p><em>Value:</em> <%= @sponsor.value %></p>
+<p><em>Club:</em> <%= @sponsor.club %></p>
+
+<p><a href="/sponsors/<%= @sponsor.id %>/edit">Edit <%= @sponsor.name %></a></p>
+<p><a href="/sponsors">Back to all Sponsors</a></p>

@@ -1,0 +1,29 @@
+<title> Sponsors </title>
+
+<% if @sponsor.errors.any? %>
+  <div>
+    <h2>Errors:</h2>
+    <ul>
+      <% @sponsor.errors.full_messages.each do |s| %>
+        <li><%= s %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h1>Edit <%= @sponsor.name %></h1>
+
+<form action="/sponsors/<%= @sponsor.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div>
+    Name:
+    <input type="text" name="name" value="<%= @sponsor.name %>">
+  </div>
+  <div>
+    Value:
+    <input type="text" name="value" value="<%= @sponsor.value %>">
+  </div>
+  <div>
+    <input type="submit" value="Update Sponsor">
+  </div>
+</form>

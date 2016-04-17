@@ -3,6 +3,7 @@
 
 <p><em>Name:</em> <%= @club.name %></p>
 <p><em>City:</em> <%= @club.city %></p>
+
 <ul>
   <% @sponsors.each do |s| %>
   <li><%= s.name %></li>
@@ -19,8 +20,9 @@
 <div>
   Players:
     <% @club.players.each do |p| %>
-  <input type="text" name="name" value="<%= @p.name %>">
-    <li><%= s.name %></li>
+  <input type="text" name="player" value="<%= p.name %>">
+    <li><%= p.name %></li>
+    <% end %>
 </div>
 
 <p><a href="/clubs/<%= @club.id %>/edit">Edit <%= @club.name %></a></p>

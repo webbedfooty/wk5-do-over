@@ -29,7 +29,7 @@ end
 get "/clubs/:id" do
   @club = Club.find_by_id(params['id'])
   @sponsors = @club.sponsors
-  @players = @club.players 
+  @players = @club.players
 erb :"clubs/show"
 end
 

@@ -1,4 +1,16 @@
 <title> Players </title>
+
+<% if @club.errors.any? %>
+  <div>
+    <h2>Errors:</h2>
+    <ul>
+      <% @club.errors.full_messages.each do |c| %>
+        <li><%= c %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1>Edit <%= @player.name %></h1>
 
 <form action="/players/<%= @player.id %>" method="post">
