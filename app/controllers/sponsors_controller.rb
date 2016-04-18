@@ -54,7 +54,6 @@ end
 # EDIT
 get "/sponsors/:id/edit" do
   @sponsor = Sponsor.find_by_id(params['id'])
-  @sponsors = Sponsor.order(:name)
   erb :"sponsors/edit"
 end
 
