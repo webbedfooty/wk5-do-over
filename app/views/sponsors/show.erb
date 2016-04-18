@@ -1,14 +1,13 @@
 <title> Sponsor </title>
-<h1><%= @sponsor.name %></h1>
-
-<p><em>Value:</em> <%= @sponsor.value %></p>
-
-Clubs:
+<h1>Sponsor: <%= @sponsor.name %></h1>
+<h2><em>Contract Value:</em> <%= @sponsor.value %></h2>
+</div>
+<h3>Clubs under contract:</h3>
   <% @sponsor.clubs.each do |c| %>
-<input type="text" name="sponsor" value="<%= c.name %>">
 <li><%= c.name %></li>
 <% end %>
 </div>
-
+<p></p>
+<br>
 <p><a href="/sponsors/<%= @sponsor.id %>/edit">Edit <%= @sponsor.name %></a></p>
 <p><a href="/sponsors">Back to all Sponsors</a></p>

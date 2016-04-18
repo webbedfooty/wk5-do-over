@@ -20,7 +20,7 @@ end
 
 # INDEX
 get "/sponsors" do
-  @sponsors = Sponsor.all
+  @sponsors = Sponsor.order(:name)
   erb :"sponsors/index"
 end
 
@@ -54,7 +54,7 @@ end
 # EDIT
 get "/sponsors/:id/edit" do
   @sponsor = Sponsor.find_by_id(params['id'])
-  @sponsors = Sponsor.all
+  @sponsors = Sponsor.order(:name)
   erb :"sponsors/edit"
 end
 

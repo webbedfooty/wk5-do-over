@@ -20,7 +20,7 @@ end
 
 # INDEX
 get "/clubs" do
-  @clubs = Club.all
+  @clubs = Club.order(:name)
   erb :"clubs/index"
 end
 
@@ -38,7 +38,7 @@ end
 # SPONSORS
 get "/clubs/:id/sponsors" do
   @club = Club.find_by_id(params['id'])
-  @sponsors = Sponsor.all
+  @sponsors = Sponsor.order(:name)
   erb :"clubs/sponsors"
 end
 
@@ -55,7 +55,7 @@ end
 # PLAYERS
 get "/clubs/:id/players" do
   @club = Club.find_by_id(params['id'])
-  @players = Player.all
+  @players = Player.order(:name)
   erb :"clubs/players"
 end
 

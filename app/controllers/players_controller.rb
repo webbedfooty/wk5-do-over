@@ -20,7 +20,8 @@ end
 
 # INDEX
 get "/players" do
-  @players = Player.all
+  @players = Player.order(:name)
+  @club = Club.all
   erb :"players/index"
 end
 
@@ -28,7 +29,7 @@ end
 # SHOW - add club here
 get "/players/:id" do
   @player = Player.find_by_id(params['id'])
-  @clubs = @player.clubs
+  @club = @player.club
 erb :"players/show"
 end
 
@@ -36,16 +37,16 @@ end
 # CLUBS
 get "/players/:id/clubs" do
   @player = Player.find_by_id(params['id'])
-  @clubs = Club.all
+  @club = Club.all
   erb :"players/clubs"
 end
 
 
 patch "/players/:id/clubs" do
   @player = Player.find_by_id(params['id'])
-  @clubs = Club.where(id: params['club_id'])
+  @club = Club.where(id: params['club_id'])
 
-  @player.clubs = @clubs
+  @player.club = @club
 
   redirect to("/players/#{ @player.id }/clubs")
 end
@@ -53,7 +54,7 @@ end
 # EDIT
 get "/players/:id/edit" do
   @player = Player.find_by_id(params['id'])
-  @players = Player.all
+  @players = Player.order(:name)
   erb :"players/edit"
 end
 

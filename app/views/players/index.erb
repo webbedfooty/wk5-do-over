@@ -1,9 +1,9 @@
 <title> Players </title>
 <h1>Players Index</h1>
-<ul>
-  <% @players.each do |p| %>
-    <li><a href="/players/<%= p.id %>"><%= p.name %>, <%= p.club %></a></li>
+<ol>
+  <% @players.each do |x| %>
+    <li><a href="/players/<%= x.id %>"><%= x.name %></a>  /  <%= x.club.name unless x.club.nil? %></li>
   <% end %>
-</ul>
+</ol>
 <p><a href="/players/new">New Player</a></p>
 <p><a href="/">Back Home</a></p>
