@@ -70,7 +70,7 @@ end
 
 
 # DELETE
-delete "/sponsors/:id/?" do
+delete "/sponsors/:id" do
   @sponsor = Sponsor.find_by_id(params['id'])
   @sponsor.destroy
   redirect to("/sponsors")

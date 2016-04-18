@@ -71,9 +71,8 @@ end
 
 
 # DELETE
-# check scratch for delete
-# put in code for reassign_all_clubs
-#  @player.reassign_all_clubs(@new_player)
-
-
-# ALL CLUBS FOR A SPONSOR
+delete "/players/:id" do
+  @player = Player.find_by_id(params['id'])
+  @player.destroy
+  redirect to("/players")
+end

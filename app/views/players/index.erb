@@ -2,7 +2,7 @@
 <h1>Players Index</h1>
 <ol>
   <% @players.each do |x| %>
-    <li><a href="/players/<%= x.id %>"><%= x.name %></a>  /  <%= x.club.name unless x.club.nil? %></li>
+    <li><a href="/players/<%= x.id %>"><%= x.name %></a>  /  <%= x.value %>  /  <%= x.club.name unless x.club.nil? %></li>
   <% end %>
 </ol>
 <p><a href="/players/new">New Player</a></p>
