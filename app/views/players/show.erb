@@ -1,8 +1,18 @@
-<title> Players </title>
-<h1><%= @player.name %></h1>
-
-<p><em>Value:</em> <%= @player.value %></p>
-<p><em>Club:</em> <%=  @player.club.name if @player.club %></p>
-
-<p><a href="/players/<%= @player.id %>/edit">Edit <%= @player.name %></a></p>
-<p><a href="/players">Back to all Players</a></p>
+<div class="row">
+  <div class="col s12 m7">
+    <div class="card small">
+      <div class="card-image">
+        <img src="images/<%= @player.id %>.jpg">
+        <span class="card-title"><%= @player.name %></span>
+      </div>
+      <div class="card-content">
+        <p><em>Value:</em> <%= @player.value %></p>
+        <p><em>Club:</em> <%=  @player.club.name if @player.club %></p>
+      </div>
+      <div class="card-action">
+        <p><a href="/players/<%= @player.id %>/edit">Edit <%= @player.name %></a></p>
+        <a href="/players">Back to all Players</a>
+      </div>
+    </div>
+  </div>
+</div>
