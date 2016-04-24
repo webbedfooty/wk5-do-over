@@ -61,7 +61,7 @@ end
 # UPDATE
 patch "/sponsors/:id" do
   @sponsor = Sponsor.find_by_id(params['id'])
-  if @sponsor.update_attributes(name: params['name'])
+  if @sponsor.update_attributes(name: params['name'], value: params['value'])
     redirect to("/sponsors/#{@sponsor.id}")
   else
     erb :"sponsors/edit"
