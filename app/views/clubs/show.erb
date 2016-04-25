@@ -1,29 +1,32 @@
-<title> Clubs </title>
-<h1><%= @club.name %></h1>
-<em>City:</em> <%= @club.city %>
-
-<div>
-  <h3>Current Sponsors:</h3>
-  <ul>
-    <% @club.sponsors.each do |s| %>
-    <li><%= s.value%>, <%=s.name %></li>
-    <% end %>
-  </ul>
+<div class="row">
+  <div class="col s12 m7">
+    <div class="card medium">
+      <div class="card-image">
+        <img src="/images/club<%= @club.id %>.jpg"></img>
+        <span class="card-title"><%= @club.name %></span>
+      </div>
+      <div class="card-content">
+        City:<%= @club.city %>
+        <p>Sponsors:</p>
+        <ul>
+          <% @club.sponsors.each do |s| %>
+          <li><%= s.value%>, <%=s.name %></li>
+          <% end %>
+        </ul>
+        <p><em>Club:</em> <%=  @player.club.name if @player.club %></p>
+        <% @club.players.each do |p| %>
+        <li><%= p.value%>, <%=p.name %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div>
+    <p><a href="/clubs/<%= @club.id %>/players">Available Players</a>
+    </div>
+      </div>
+      <div class="card-action">
+        <p><a href="/clubs/<%= @club.id %>/edit">Edit <%= @club.name %></p>
+        <a href="/clubs">Back to all Clubs</a>
+      </div>
+    </div>
+  </div>
 </div>
-<div>
-<p><a href="/clubs/<%= @club.id %>/sponsors">Available Sponsors</a></p>
-</div>
-<div>
-  <h3>Current Key Players:</h3>
-  <ul>
-    <% @club.players.each do |p| %>
-    <li><%= p.value%>, <%=p.name %></li>
-    <% end %>
-  </ul>
-</div>
-<div>
-<p><a href="/clubs/<%= @club.id %>/players">Available Players</a>
-</div>
-
-<p><a href="/clubs/<%= @club.id %>/edit">Edit <%= @club.name %></a></p>
-<p><a href="/clubs">Back to all Clubs</a></p>
