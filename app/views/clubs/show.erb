@@ -12,19 +12,10 @@
           <% @club.sponsors.each do |s| %>
           <li><%= s.value%>, <%=s.name %></li>
           <% end %>
-        </ul>
-        <p><em>Club:</em> <%=  @player.club.name if @player.club %></p>
-        <% @club.players.each do |p| %>
-        <li><%= p.value%>, <%=p.name %></li>
-        <% end %>
-      </ul>
-    </div>
-    <div>
-    <p><a href="/clubs/<%= @club.id %>/players">Available Players</a>
-    </div>
-      </div>
+
+
       <div class="card-action">
-        <p><a href="/clubs/<%= @club.id %>/edit">Edit <%= @club.name %></p>
+        <a href="/clubs/<%= @club.id %>/edit">Edit <%= @club.name %>
         <a href="/clubs">Back to all Clubs</a>
       </div>
     </div>
